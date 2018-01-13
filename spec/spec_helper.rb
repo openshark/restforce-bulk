@@ -9,6 +9,7 @@ require 'bundler/setup'
 
 Bundler.require
 require 'restforce/bulk'
+require 'securerandom'
 
 ROOT_PATH = File.expand_path('../..', __FILE__)
 
@@ -36,7 +37,7 @@ module RestforceMockHelpers
 
     send(mock_type, restforce_client)
       .to receive(method)
-      .with([bulk_api_base_path, path].join('/'), data, resulting_headers)
+            .with([bulk_api_base_path, path].join('/'), data, resulting_headers)
   end
 
   def allow_restforce_request(method, path, data=nil, content_type=:xml, headers={})
