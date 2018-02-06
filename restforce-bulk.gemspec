@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/dtmtec/restforce-bulk"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = Dir.glob("{bin,lib,template}/**/*") + %w(LICENSE.txt README.md)
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
@@ -22,8 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "restforce", "~> 2.5"
   spec.add_dependency "nokogiri"
   spec.add_dependency "multi_xml"
-  spec.add_dependency "activesupport", "~> 5.0.6"
-  spec.add_dependency "rubyzip", "~> 1.1.7"
+  spec.add_dependency "activesupport", ">= 4.2.6", "< 6.0"
+  spec.add_dependency "rubyzip", "~> 1.1"
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
